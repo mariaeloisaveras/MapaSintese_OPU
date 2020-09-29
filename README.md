@@ -1,2 +1,2 @@
-# https://mariaeloisaveras.github.io/mapa_OPU/
+# https://mariaeloisaveras.github.io/MapaSintese_OPU/
 Mapa sintese - OPU
