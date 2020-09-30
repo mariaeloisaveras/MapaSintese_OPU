@@ -46,9 +46,10 @@
         <script src="data/Equipamentoseducacionais_9.js"></script>
         <script src="data/Equipamentosculturais_10.js"></script>
         <script src="data/Equipamentossociais_11.js"></script>
-        <script src="data/Rios_Riachos_Corregos_12.js"></script>
-        <script src="data/Rioprincipal_13.js"></script>
-        <script src="data/ViasJundiai_14.js"></script>
+        <script src="data/Terminais_12.js"></script>
+        <script src="data/Rios_Riachos_Corregos_13.js"></script>
+        <script src="data/Rioprincipal_14.js"></script>
+        <script src="data/ViasJundiai_15.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
@@ -738,7 +739,56 @@
         });
         bounds_group.addLayer(layer_Equipamentossociais_11);
         map.addLayer(layer_Equipamentossociais_11);
-        function pop_Rios_Riachos_Corregos_12(feature, layer) {
+        function pop_Terminais_12(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['nome'] !== null ? autolinker.link(feature.properties['nome'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['cod'] !== null ? autolinker.link(feature.properties['cod'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Terminais_12_0() {
+            return {
+                pane: 'pane_Terminais_12',
+                shape: 'triangle',
+                radius: 8.0,
+                opacity: 1,
+                color: 'rgba(246,24,220,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Terminais_12');
+        map.getPane('pane_Terminais_12').style.zIndex = 412;
+        map.getPane('pane_Terminais_12').style['mix-blend-mode'] = 'normal';
+        var layer_Terminais_12 = new L.geoJson(json_Terminais_12, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Terminais_12',
+            layerName: 'layer_Terminais_12',
+            pane: 'pane_Terminais_12',
+            onEachFeature: pop_Terminais_12,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_Terminais_12_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Terminais_12);
+        map.addLayer(layer_Terminais_12);
+        function pop_Rios_Riachos_Corregos_13(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Layer'] !== null ? autolinker.link(feature.properties['Layer'].toLocaleString()) : '') + '</td>\
@@ -765,9 +815,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Rios_Riachos_Corregos_12_0() {
+        function style_Rios_Riachos_Corregos_13_0() {
             return {
-                pane: 'pane_Rios_Riachos_Corregos_12',
+                pane: 'pane_Rios_Riachos_Corregos_13',
                 opacity: 1,
                 color: 'rgba(4,209,250,1.0)',
                 dashArray: '',
@@ -778,21 +828,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Rios_Riachos_Corregos_12');
-        map.getPane('pane_Rios_Riachos_Corregos_12').style.zIndex = 412;
-        map.getPane('pane_Rios_Riachos_Corregos_12').style['mix-blend-mode'] = 'normal';
-        var layer_Rios_Riachos_Corregos_12 = new L.geoJson(json_Rios_Riachos_Corregos_12, {
+        map.createPane('pane_Rios_Riachos_Corregos_13');
+        map.getPane('pane_Rios_Riachos_Corregos_13').style.zIndex = 413;
+        map.getPane('pane_Rios_Riachos_Corregos_13').style['mix-blend-mode'] = 'normal';
+        var layer_Rios_Riachos_Corregos_13 = new L.geoJson(json_Rios_Riachos_Corregos_13, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Rios_Riachos_Corregos_12',
-            layerName: 'layer_Rios_Riachos_Corregos_12',
-            pane: 'pane_Rios_Riachos_Corregos_12',
-            onEachFeature: pop_Rios_Riachos_Corregos_12,
-            style: style_Rios_Riachos_Corregos_12_0,
+            dataVar: 'json_Rios_Riachos_Corregos_13',
+            layerName: 'layer_Rios_Riachos_Corregos_13',
+            pane: 'pane_Rios_Riachos_Corregos_13',
+            onEachFeature: pop_Rios_Riachos_Corregos_13,
+            style: style_Rios_Riachos_Corregos_13_0,
         });
-        bounds_group.addLayer(layer_Rios_Riachos_Corregos_12);
-        map.addLayer(layer_Rios_Riachos_Corregos_12);
-        function pop_Rioprincipal_13(feature, layer) {
+        bounds_group.addLayer(layer_Rios_Riachos_Corregos_13);
+        map.addLayer(layer_Rios_Riachos_Corregos_13);
+        function pop_Rioprincipal_14(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Layer'] !== null ? autolinker.link(feature.properties['Layer'].toLocaleString()) : '') + '</td>\
@@ -819,9 +869,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Rioprincipal_13_0() {
+        function style_Rioprincipal_14_0() {
             return {
-                pane: 'pane_Rioprincipal_13',
+                pane: 'pane_Rioprincipal_14',
                 opacity: 1,
                 color: 'rgba(8,38,231,1.0)',
                 dashArray: '',
@@ -832,21 +882,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Rioprincipal_13');
-        map.getPane('pane_Rioprincipal_13').style.zIndex = 413;
-        map.getPane('pane_Rioprincipal_13').style['mix-blend-mode'] = 'normal';
-        var layer_Rioprincipal_13 = new L.geoJson(json_Rioprincipal_13, {
+        map.createPane('pane_Rioprincipal_14');
+        map.getPane('pane_Rioprincipal_14').style.zIndex = 414;
+        map.getPane('pane_Rioprincipal_14').style['mix-blend-mode'] = 'normal';
+        var layer_Rioprincipal_14 = new L.geoJson(json_Rioprincipal_14, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Rioprincipal_13',
-            layerName: 'layer_Rioprincipal_13',
-            pane: 'pane_Rioprincipal_13',
-            onEachFeature: pop_Rioprincipal_13,
-            style: style_Rioprincipal_13_0,
+            dataVar: 'json_Rioprincipal_14',
+            layerName: 'layer_Rioprincipal_14',
+            pane: 'pane_Rioprincipal_14',
+            onEachFeature: pop_Rioprincipal_14,
+            style: style_Rioprincipal_14_0,
         });
-        bounds_group.addLayer(layer_Rioprincipal_13);
-        map.addLayer(layer_Rioprincipal_13);
-        function pop_ViasJundiai_14(feature, layer) {
+        bounds_group.addLayer(layer_Rioprincipal_14);
+        map.addLayer(layer_Rioprincipal_14);
+        function pop_ViasJundiai_15(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['sv_2015'] !== null ? autolinker.link(feature.properties['sv_2015'].toLocaleString()) : '') + '</td>\
@@ -884,9 +934,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_ViasJundiai_14_0() {
+        function style_ViasJundiai_15_0() {
             return {
-                pane: 'pane_ViasJundiai_14',
+                pane: 'pane_ViasJundiai_15',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -897,20 +947,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_ViasJundiai_14');
-        map.getPane('pane_ViasJundiai_14').style.zIndex = 414;
-        map.getPane('pane_ViasJundiai_14').style['mix-blend-mode'] = 'normal';
-        var layer_ViasJundiai_14 = new L.geoJson(json_ViasJundiai_14, {
+        map.createPane('pane_ViasJundiai_15');
+        map.getPane('pane_ViasJundiai_15').style.zIndex = 415;
+        map.getPane('pane_ViasJundiai_15').style['mix-blend-mode'] = 'normal';
+        var layer_ViasJundiai_15 = new L.geoJson(json_ViasJundiai_15, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ViasJundiai_14',
-            layerName: 'layer_ViasJundiai_14',
-            pane: 'pane_ViasJundiai_14',
-            onEachFeature: pop_ViasJundiai_14,
-            style: style_ViasJundiai_14_0,
+            dataVar: 'json_ViasJundiai_15',
+            layerName: 'layer_ViasJundiai_15',
+            pane: 'pane_ViasJundiai_15',
+            onEachFeature: pop_ViasJundiai_15,
+            style: style_ViasJundiai_15_0,
         });
-        bounds_group.addLayer(layer_ViasJundiai_14);
-        map.addLayer(layer_ViasJundiai_14);
+        bounds_group.addLayer(layer_ViasJundiai_15);
+        map.addLayer(layer_ViasJundiai_15);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -922,7 +972,7 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/ViasJundiai_14.png" /> Vias Jundiai': layer_ViasJundiai_14,'<img src="legend/Rioprincipal_13.png" /> Rio principal': layer_Rioprincipal_13,'<img src="legend/Rios_Riachos_Corregos_12.png" /> Rios_Riachos_Corregos': layer_Rios_Riachos_Corregos_12,'<img src="legend/Equipamentossociais_11.png" /> Equipamentos sociais': layer_Equipamentossociais_11,'<img src="legend/Equipamentosculturais_10.png" /> Equipamentos culturais': layer_Equipamentosculturais_10,'<img src="legend/Equipamentoseducacionais_9.png" /> Equipamentos educacionais': layer_Equipamentoseducacionais_9,'<img src="legend/Curvasnivel_8.png" /> Curvas nivel': layer_Curvasnivel_8,'<img src="legend/Consolidado_7.png" /> Consolidado': layer_Consolidado_7,'<img src="legend/Rarefeito_6.png" /> Rarefeito': layer_Rarefeito_6,'<img src="legend/Emconsolidao_5.png" /> Em consolidação': layer_Emconsolidao_5,'<img src="legend/cerrado_4.png" /> cerrado': layer_cerrado_4,'<img src="legend/mata_atlantica_3.png" /> mata_atlantica': layer_mata_atlantica_3,'<img src="legend/jundiai_2.png" /> jundiai': layer_jundiai_2,'<img src="legend/perimetro_rural_1.png" /> perimetro_rural': layer_perimetro_rural_1,"Google Hybrid": layer_GoogleHybrid_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/ViasJundiai_15.png" /> Vias Jundiai': layer_ViasJundiai_15,'<img src="legend/Rioprincipal_14.png" /> Rio principal': layer_Rioprincipal_14,'<img src="legend/Rios_Riachos_Corregos_13.png" /> Rios_Riachos_Corregos': layer_Rios_Riachos_Corregos_13,'<img src="legend/Terminais_12.png" /> Terminais': layer_Terminais_12,'<img src="legend/Equipamentossociais_11.png" /> Equipamentos sociais': layer_Equipamentossociais_11,'<img src="legend/Equipamentosculturais_10.png" /> Equipamentos culturais': layer_Equipamentosculturais_10,'<img src="legend/Equipamentoseducacionais_9.png" /> Equipamentos educacionais': layer_Equipamentoseducacionais_9,'<img src="legend/Curvasnivel_8.png" /> Curvas nivel': layer_Curvasnivel_8,'<img src="legend/Consolidado_7.png" /> Consolidado': layer_Consolidado_7,'<img src="legend/Rarefeito_6.png" /> Rarefeito': layer_Rarefeito_6,'<img src="legend/Emconsolidao_5.png" /> Em consolidação': layer_Emconsolidao_5,'<img src="legend/cerrado_4.png" /> cerrado': layer_cerrado_4,'<img src="legend/mata_atlantica_3.png" /> mata_atlantica': layer_mata_atlantica_3,'<img src="legend/jundiai_2.png" /> jundiai': layer_jundiai_2,'<img src="legend/perimetro_rural_1.png" /> perimetro_rural': layer_perimetro_rural_1,"Google Hybrid": layer_GoogleHybrid_0,},{collapsed:false}).addTo(map);
         setBounds();
         </script>
     </body>
